@@ -17,7 +17,7 @@ public class BankApplication {
         System.out.println("Emailed clients: " + bank.getEmailedClients());
         System.out.println("Debugged clients: " + bank.getDebuggedClients());
 
-        // Test exception handling
+        // CheckingAccount Test exception handling
         CheckingAccount checkingAccount = new CheckingAccount(1, 1000, 200);
         bank.addAccount(checkingAccount);
         double amount_to_withdraw_from_checkingAccount = 100000;
@@ -34,10 +34,10 @@ public class BankApplication {
             e.printStackTrace();
         }
 
-         // Test exception handling
-        SavingAccount savingAccount = new SavingAccount(1, 1000, 200);
+         // SavingAccount Test exception handling
+        SavingAccount savingAccount = new SavingAccount(2, 25000, 1000);
         bank.addAccount(savingAccount);
-        double amount_to_withdraw_from_saving_account = 100000;
+        double amount_to_withdraw_from_saving_account = 50000;
 
         try {
             checkingAccount.withdraw(amount_to_withdraw_from_saving_account);
