@@ -15,7 +15,7 @@ public class CheckingAccount extends AbstractAccount {
     }
 
     @Override
-    public void withdraw(double amount) throws NotEnoughFundsException {
+    public void withdraw(double amount) throws OverdraftLimitExceededException {
         if (amount <= balance + overdraft) {
             balance -= amount;
         } else {

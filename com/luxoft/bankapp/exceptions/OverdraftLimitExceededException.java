@@ -13,9 +13,5 @@ public class OverdraftLimitExceededException extends NotEnoughFundsException {
     public double getOverdraft() {
         return overdraft;
     }
-
-    public double maximumAmountToWithdraw() {
-        return maximum_withdrawel_amount;
-    }
 }
 

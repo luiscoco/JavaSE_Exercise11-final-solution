@@ -24,8 +24,9 @@ public class BankApplication {
         try {
             checkingAccount.withdraw(100000);
         } 
-        catch (NotEnoughFundsException e) {
+        catch (OverdraftLimitExceededException e) {
             e.printStackTrace();
+            e.getOverdraft();
         }
     }
 }
