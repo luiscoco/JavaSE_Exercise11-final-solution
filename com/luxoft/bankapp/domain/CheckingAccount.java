@@ -4,7 +4,9 @@ import com.luxoft.bankapp.exceptions.NotEnoughFundsException;
 import com.luxoft.bankapp.exceptions.OverdraftLimitExceededException;
 
 public class CheckingAccount extends AbstractAccount {
-    private double overdraft;
+    public double overdraft;
+    public int id;
+    public double initialBalance;
 
     public CheckingAccount(int id, double initialBalance, double overdraft) {
         super(id, initialBalance);
@@ -12,6 +14,8 @@ public class CheckingAccount extends AbstractAccount {
             throw new IllegalArgumentException("Invalid overdraft value: " + overdraft);
         }
         this.overdraft = overdraft;
+        this.id = id;
+        this.initialBalance = initialBalance;
     }
 
     @Override
