@@ -19,11 +19,18 @@ public class CheckingAccount extends AbstractAccount {
     }
 
     @Override
-    public void withdraw(double amount) throws OverdraftLimitExceededException {
+    public void withdraw(double amount) throws NotEnoughFundsException {
         if (amount <= balance + overdraft) {
             balance -= amount;
+            
         } else {
+            System.out.println("Insufficient funds!");
             throw new OverdraftLimitExceededException(id, balance, amount, overdraft);
         }
+    }
+
+    @Override
+    public double maximumAmountToWithdraw() {
+        throw new UnsupportedOperationException("Unimplemented method 'maximumAmountToWithdraw'");
     }
 }
