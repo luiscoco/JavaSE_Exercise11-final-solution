@@ -20,14 +20,31 @@ public class BankApplication {
         // Test exception handling
         CheckingAccount checkingAccount = new CheckingAccount(1, 1000, 200);
         bank.addAccount(checkingAccount);
-        double amount_to_withdraw = 100000;
+        double amount_to_withdraw_from_checkingAccount = 100000;
 
         try {
-            checkingAccount.withdraw(amount_to_withdraw);
+            checkingAccount.withdraw(amount_to_withdraw_from_checkingAccount);
         } 
         catch (OverdraftLimitExceededException e) {
             System.out.println("Not enough funds for account " + checkingAccount.id + ". Current balance: " + checkingAccount.initialBalance
-            + ", requested amount: " + amount_to_withdraw +
+            + ", requested amount: " + amount_to_withdraw_from_checkingAccount +
+             " maximum withdrawel amount: " + (checkingAccount.initialBalance+e.getOverdraft()));
+        }
+        catch (NotEnoughFundsException e) {
+            e.printStackTrace();
+        }
+
+         // Test exception handling
+        SavingAccount savingAccount = new SavingAccount(1, 1000, 200);
+        bank.addAccount(savingAccount);
+        double amount_to_withdraw_from_saving_account = 100000;
+
+        try {
+            checkingAccount.withdraw(amount_to_withdraw_from_saving_account);
+        } 
+        catch (OverdraftLimitExceededException e) {
+            System.out.println("Not enough funds for account " + checkingAccount.id + ". Current balance: " + checkingAccount.initialBalance
+            + ", requested amount: " + amount_to_withdraw_from_saving_account +
              " maximum withdrawel amount: " + (checkingAccount.initialBalance+e.getOverdraft()));
         }
         catch (NotEnoughFundsException e) {
