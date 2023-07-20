@@ -7,7 +7,7 @@ public class NotEnoughFundsException extends BankException {
     private double maximum_withdrawel_amount;
 
     public NotEnoughFundsException(int id, double balance, double amount, double maximum_withdrawel_amount) {
-        super("Not enough funds for account " + id + ". Current balance: " + balance + ", requested amount: " + amount + "maximum withdrawel amount: " + maximum_withdrawel_amount);
+        super("Not enough funds for account " + id + ". Current balance: " + balance + ", requested amount: " + amount + ", maximum withdrawel amount: " + maximum_withdrawel_amount);
         this.id = id;
         this.balance = balance;
         this.amount = amount;

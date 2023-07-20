@@ -42,11 +42,11 @@ public class BankApplication {
         try {
             checkingAccount.withdraw(amount_to_withdraw_from_saving_account);
         } 
-        catch (OverdraftLimitExceededException e) {
-            System.out.println("Not enough funds for account " + checkingAccount.id + ". Current balance: " + checkingAccount.initialBalance
-            + ", requested amount: " + amount_to_withdraw_from_saving_account +
-             " maximum withdrawel amount: " + (checkingAccount.initialBalance+e.getOverdraft()));
-        }
+        // catch (OverdraftLimitExceededException e) {
+        //     System.out.println("Not enough funds for account: " + checkingAccount.id + ". Current balance: " + checkingAccount.initialBalance
+        //     + ". Requested amount: " + amount_to_withdraw_from_saving_account +
+        //      ". Maximum withdrawel amount: " + (checkingAccount.initialBalance+e.getOverdraft()));
+        // }
         catch (NotEnoughFundsException e) {
             e.printStackTrace();
         }
