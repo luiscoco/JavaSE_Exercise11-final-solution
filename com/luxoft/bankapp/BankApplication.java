@@ -40,7 +40,7 @@ public class BankApplication {
         double amount_to_withdraw_from_saving_account = 50000;
 
         try {
-            checkingAccount.withdraw(amount_to_withdraw_from_saving_account);
+            savingAccount.withdraw(amount_to_withdraw_from_saving_account);
         } 
         // catch (OverdraftLimitExceededException e) {
         //     System.out.println("Not enough funds for account: " + checkingAccount.id + ". Current balance: " + checkingAccount.initialBalance
